@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.page {
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.page.active {
+    display: flex;
+}
+
+.card,
+.letter-card,
+.surprise-card {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 520px;
+    padding: 40px 30px;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+
+    animation: appear 1s ease;
+}
+
+.heart {
+    font-size: 75px;
+    animation: heartbeat 1.2s infinite;
+}
+
+.envelope {
+    font-size: 70px;
+    margin-bottom: 15px;
+}
+
+.big-heart {
+    font-size: 100px;
+    animation: heartbeat 1.2s infinite;
+}
+
+h1 {
+    margin: 15px 0;
+    font-size: 42px;
+}
+
+h2 {
+    margin: 25px 0;
+}
+
+p {
+    line-height: 1.8;
+    margin: 15px 0;
+}
+
+.small-text {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.special {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+button {
+    border: none;
+    padding: 15px 25px;
+    margin-top: 20px;
+
+    border-radius: 50px;
+
+    background: white;
+    color: #ff4f81;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -50px;
+    animation: floatUp linear forwards;
+    opacity: 0.8;
+}
+
+#finalMessage {
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+
+    h1 {
+        font-size: 32px;
+    }
+
+    .card,
+    .letter-card,
+    .surprise-card {
+        padding: 30px 22px;
+    }
+
+}
